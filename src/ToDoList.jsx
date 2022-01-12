@@ -5,7 +5,7 @@ import style from './App.css'
 const ToDoList = ({toDoList, handleToggle, handleFilter}) => {
     if(toDoList)
         return (
-            <div className = {style.todos}>
+            <div className = "todos">
                 {toDoList.map(todo => {
                     return (
                         <ToDo todo={todo} handleToggle={handleToggle} handleFilter={handleFilter}/>
