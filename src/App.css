@@ -3,29 +3,27 @@
 }
 
 .App {
-  text-align: center;
-}
-
-.todos{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+}
+.cardContainer{
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
-
-.todo{
-  width: 50%;
-  height: 2rem;
-  margin: 0.5rem;
-  border: 2px solid #aaa;
+.countryCard{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-bottom: 1rem;
 }
 
-.strike{
-  text-decoration: line-through;
-}
-
-input{
-  height: 2rem;
+.flag{
+  width: 5rem;
 }
 
 button{

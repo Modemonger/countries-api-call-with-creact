@@ -17,6 +17,7 @@ const Continents = ({data, handleClick}) => {
                 <button key = {continent} onClick = {(event) => handleClick(event,continent)}>{continent}</button>
             )
         });
+        output.push(<button key = "all" onClick = {(event) => handleClick(event, 'all')}>View All</button>);
     }
     
     return (

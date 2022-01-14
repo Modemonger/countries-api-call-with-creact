@@ -29,11 +29,21 @@ function App() {
 
   function handleClick(e,continent){
     e.preventDefault();
-    let tmp = data.filter(data => data.continents[0] === continent);
+    let tmp;
+    if(continent !== 'all'){
+      tmp = data.filter(data => data.continents[0] === continent);
+    }
+    else tmp = data;
     setCountries(tmp);
   }
 
-  if(loading) return "loading...";
+  if(loading){
+    return (
+        
+        "loading..."
+
+    );
+  }
 
   return (
     <div className="App">

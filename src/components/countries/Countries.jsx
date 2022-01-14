@@ -8,11 +8,14 @@ const Countries = ({countries}) => {
     if(countries)
     countries.map(country => {
         //console.log(country.name);
-        output.push(<div key={country.name.common}>{country.name.common}</div>);
+        output.push(<div className='countryCard' key={country.name.common}>
+                        <p>{country.name.common}</p>
+                        <img className='flag' src={country.flags.svg} alt={`Flag of ${country.name.common}`} />
+                    </div>);
     })
 
     return (
-        <div>
+        <div className='cardContainer'>
             {output}    
         </div>
     )
