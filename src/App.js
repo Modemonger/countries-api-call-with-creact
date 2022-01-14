@@ -1,41 +1,34 @@
-import React, { useState } from 'react';
-//mock data
-import data from "./data.json";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+//data
+
 //components
-import ToDoList from "./ToDoList";
-import ToDoForm from './ToDoForm';
-import Header from './Header';
+import Continents from './components/continents/Continents';
 //style
 import './App.css';
 function App() {
-  
-  const [ toDoList, setToDoList ] = useState('');
 
-  const handleToggle = (id) => {
-    let mapped = toDoList.map(task => {
-      return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
-    });
-    setToDoList(mapped);
-  }
+  const [data, setData] = useState('');
+  const [loading, setLoading] = useState(true);
 
-  const handleFilter = () => {
-    let filtered = toDoList.filter(task => {
-      return !task.complete;
-    });
-    setToDoList(filtered);
-  }
+    useEffect(() => {
+        axios('https://restcountries.com/v3.1/all')
+        .then(response => {
+            setData(response.data);
+        })
+        .catch(error => {
+            console.log("Error fetching data:", error);
+        })
+        .finally(() => {
+          setLoading(false);
+        })
+    }, [])
 
-  const addTask = (userInput ) => {
-    let copy = [...toDoList];
-    copy = [...copy, { id: toDoList.length + 1, task: userInput, complete: false }];
-    setToDoList(copy);
-  }
+  if(loading) return "loading...";
 
   return (
     <div className="App">
-      <Header />
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
-      <ToDoForm addTask={addTask}/>
+      <Continents data={data}/>
     </div>
   );
 }
