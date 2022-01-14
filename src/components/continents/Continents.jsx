@@ -1,14 +1,9 @@
 import React from 'react'
 
-const Continents = ({data}) => {
+const Continents = ({data, handleClick}) => {
 
     console.log(data);
     let output = [];
-
-    function handleClick(e,continent){
-        e.preventDefault();
-        console.log(continent);
-    }
 
     let copy;
     
