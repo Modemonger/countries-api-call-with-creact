@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Countries = ({countries}) => {
+const Countries = ({countries, handleExpand}) => {
     
     //console.log(countries);
     let output = [];
@@ -10,6 +10,7 @@ const Countries = ({countries}) => {
         //console.log(country.name);
         output.push(<div className='countryCard' key={country.name.common}>
                         <p>{country.name.common}</p>
+                        <p onClick={(event) => handleExpand(event, country)}>Read more...</p>
                         <img className='flag' src={country.flags.svg} alt={`Flag of ${country.name.common}`} />
                     </div>);
     })

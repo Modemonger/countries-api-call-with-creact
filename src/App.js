@@ -5,13 +5,17 @@ import axios from 'axios';
 //components
 import Continents from './components/continents/Continents';
 import Countries from './components/countries/Countries';
+import Expand from './components/handleExpand/Expand';
 //style
 import './App.css';
+
 function App() {
 
   const [data, setData] = useState('');
   const [countries, setCountries] = useState(data);
   const [loading, setLoading] = useState(true);
+  const [showMoreState, setShowMoreState] = useState(false);
+  const [country, setCountry] = useState('');
 
   useEffect(() => {
       axios('https://restcountries.com/v3.1/all')
@@ -37,6 +41,17 @@ function App() {
     setCountries(tmp);
   }
 
+  function handleExpand(e, expand){
+    e.preventDefault();
+    //console.log(expand);
+    setCountry(expand);
+    setShowMoreState(!showMoreState);
+  }
+
+  function handleLoseFocus(e){
+    setShowMoreState(false);
+  }
+
   if(loading){
     return (
         
@@ -48,7 +63,11 @@ function App() {
   return (
     <div className="App">
       <Continents data={data} handleClick={handleClick}/>
-      <Countries data={data} countries={countries}/>
+      {showMoreState ? 
+        <Expand country={country} handleLoseFocus={handleLoseFocus}/>:
+        null
+      }
+      <Countries countries={countries} handleExpand={handleExpand}/>
     </div>
   );
 }
