@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Expand = ({country, handleLoseFocus}) => {
-    console.log(country);
+    //console.log(country);
     
-    let output = <div className='background' onClick={handleLoseFocus()}>
+    let output = <div className='background'>
                     <div className='countryInfo'>
                         <h2>{country.name.common}</h2>
                         <p>The capital of {country.name.common} is {country.capital}.</p>
@@ -14,7 +14,7 @@ const Expand = ({country, handleLoseFocus}) => {
                 </div>;
 
     return (
-        <div className='info'>
+        <div className='info' onClick={handleLoseFocus}>
             {output}
         </div>
     )

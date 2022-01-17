@@ -1,0 +1,74 @@
+#root{
+    width: 100vw;
+    .App{
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        button{
+            width: 6rem;
+            height: 3.5rem;
+        }
+        .info{
+            position: fixed;
+            top: 0px;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff0;
+            z-index: 10;
+            .background{
+                width: 80%;
+                height: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fffe;
+                border-radius: 2rem;
+                z-index: 101;
+            }
+        }
+        .cardContainer{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .countryCard{
+                position: relative;
+                width: 40%;
+                height: 14rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin: 1rem;
+                background-color: #a2f5;
+                border-radius: 0.5rem;
+                .flag{
+                    width: 5rem;
+                    overflow: hidden;
+                }
+                .readMore{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #fff;
+                    width: 6rem;
+                    height: 2rem;
+                    padding: 0.5rem;
+                    border-radius: 0.3rem;
+                    transition: 50ms;
+                }
+                .readMore:hover{
+                    width: 7rem;
+                    height: 3rem;
+                }
+            }
+        }
+    }
+}

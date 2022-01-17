@@ -1,0 +1,126 @@
+#root {
+  width: 100vw;
+}
+
+#root .App {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+#root .App button {
+  width: 6rem;
+  height: 3.5rem;
+}
+
+#root .App .info {
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff0;
+  z-index: 10;
+}
+
+#root .App .info .background {
+  width: 80%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fffe;
+  border-radius: 2rem;
+  z-index: 101;
+}
+
+#root .App .cardContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#root .App .cardContainer .countryCard {
+  position: relative;
+  width: 40%;
+  height: 14rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem;
+  background-color: #a2f5;
+  border-radius: 0.5rem;
+}
+
+#root .App .cardContainer .countryCard .flag {
+  width: 5rem;
+  overflow: hidden;
+}
+
+#root .App .cardContainer .countryCard .readMore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff;
+  width: 6rem;
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  -webkit-transition: 50ms;
+  transition: 50ms;
+}
+
+#root .App .cardContainer .countryCard .readMore:hover {
+  width: 7rem;
+  height: 3rem;
+}
+/*# sourceMappingURL=style.css.map */

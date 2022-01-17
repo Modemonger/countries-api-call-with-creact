@@ -7,7 +7,7 @@ import Continents from './components/continents/Continents';
 import Countries from './components/countries/Countries';
 import Expand from './components/handleExpand/Expand';
 //style
-import './App.css';
+import './style.css';
 
 function App() {
 
@@ -49,6 +49,7 @@ function App() {
   }
 
   function handleLoseFocus(e){
+    e.preventDefault();
     setShowMoreState(false);
   }
 
