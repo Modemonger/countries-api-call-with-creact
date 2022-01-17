@@ -1,5 +1,6 @@
 #root{
     width: 100vw;
+    margin: 0;
     .App{
         position: relative;
         display: flex;
@@ -9,6 +10,10 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        #searchBar{
+            height: 3rem;
+            margin: 1rem;
+        }
         button{
             width: 6rem;
             height: 3.5rem;
@@ -27,11 +32,17 @@
                 width: 80%;
                 height: 80%;
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: center;
                 background-color: #fffe;
                 border-radius: 2rem;
                 z-index: 101;
+                .countryInfo{
+                    margin-top: 20%;
+                }
+                img{
+                    width: 40%;
+                }
             }
         }
         .cardContainer{
@@ -49,9 +60,16 @@
                 margin: 1rem;
                 background-color: #a2f5;
                 border-radius: 0.5rem;
+                .countryListName{
+                    font-size: 32px;
+                    margin-top: 1rem;
+                    margin-bottom: 0;
+                    z-index: 1;
+                }
                 .flag{
-                    width: 5rem;
+                    width: 6rem;
                     overflow: hidden;
+                    z-index: 0;
                 }
                 .readMore{
                     display: flex;
@@ -60,9 +78,10 @@
                     background-color: #fff;
                     width: 6rem;
                     height: 2rem;
-                    padding: 0.5rem;
+                    padding: 0.2rem;
                     border-radius: 0.3rem;
                     transition: 50ms;
+                    z-index: 1;
                 }
                 .readMore:hover{
                     width: 7rem;

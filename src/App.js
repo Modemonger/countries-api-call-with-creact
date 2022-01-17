@@ -6,6 +6,7 @@ import axios from 'axios';
 import Continents from './components/continents/Continents';
 import Countries from './components/countries/Countries';
 import Expand from './components/handleExpand/Expand';
+import Search from './components/search/Search';
 //style
 import './style.css';
 
@@ -16,6 +17,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [showMoreState, setShowMoreState] = useState(false);
   const [country, setCountry] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
       axios('https://restcountries.com/v3.1/all')
@@ -53,6 +55,18 @@ function App() {
     setShowMoreState(false);
   }
 
+  function handleSearch(e, arr, query){
+    e.preventDefault();
+    
+    let tmp = [...new Set(countries.map(country => 
+      country.name.common
+    ))];
+    console.log(query);
+    return tmp.filter(function(el) {
+      return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    })
+  }
+
   if(loading){
     return (
         
@@ -63,6 +77,7 @@ function App() {
 
   return (
     <div className="App">
+      <Search countries={countries} searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={(event) => handleSearch(event, country, searchQuery)}/>
       <Continents data={data} handleClick={handleClick}/>
       {showMoreState ? 
         <Expand country={country} handleLoseFocus={handleLoseFocus}/>:

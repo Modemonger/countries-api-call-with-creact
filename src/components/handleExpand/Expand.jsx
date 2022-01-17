@@ -5,6 +5,7 @@ const Expand = ({country, handleLoseFocus}) => {
     
     let output = <div className='background'>
                     <div className='countryInfo'>
+                        <img src={country.flags.svg} alt="" />
                         <h2>{country.name.common}</h2>
                         <p>The capital of {country.name.common} is {country.capital}.</p>
                         <p>It is part of the {country.continents[0]} continent.</p>
