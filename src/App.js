@@ -35,6 +35,7 @@ function App() {
 
   function handleClick(e,continent){
     e.preventDefault();
+    setSearchQuery('');
     let tmp;
     if(continent !== 'all'){
       tmp = data.filter(data => data.continents[0] === continent);
@@ -55,16 +56,21 @@ function App() {
     setShowMoreState(false);
   }
 
-  function handleSearch(e, arr, query){
+  function handleSearch(e){
     e.preventDefault();
-    
-    let tmp = [...new Set(countries.map(country => 
-      country.name.common
-    ))];
-    console.log(query);
-    return tmp.filter(function(el) {
-      return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    let tmpCountries = data.filter((country) => {
+      const countryName = country.name.common.toLowerCase();
+      if(countryName.includes(searchQuery)){
+        //console.log(country);
+        return country;
+      }
+      if(searchQuery == ''){
+        setCountries(data);
+      }
     })
+    //console.log(tmpCountries);
+    setCountries(tmpCountries);
+    //console.log(searchQuery);
   }
 
   if(loading){

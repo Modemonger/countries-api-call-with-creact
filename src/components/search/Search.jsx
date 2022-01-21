@@ -3,22 +3,25 @@ import React from 'react'
 const Search = ({countries, searchQuery, setSearchQuery, handleSearch }) => {
     let tmp;
     return (
-        <form>
+        <form
+            action="/"
+            method="get"
+            autoComplete="off"
+        >
         <label>
             <span className="visually-hidden">Find a country</span>
         </label>
         <input
-            value={searchQuery}
-            onInput={e => {
+            onChange={e => {
+                    handleSearch(e);
                     setSearchQuery(e.target.value);
-                    tmp = handleSearch(e, countries, searchQuery);
                 }
             }
+            value={searchQuery}
             type="text"
             id="searchBar"
             placeholder="Search country names..."
         />
-        <button type="submit">Search</button>
     </form>
     )
     

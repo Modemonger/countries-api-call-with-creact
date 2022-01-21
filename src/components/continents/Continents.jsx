@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 
 const Continents = ({data, handleClick}) => {
 
@@ -6,6 +6,12 @@ const Continents = ({data, handleClick}) => {
     let output = [];
 
     let copy;
+
+    const [isActive, setActive] = useState(false);
+
+    const toggleClass = () => {
+        setActive(!isActive);
+    };
     
     if(data){
         copy = [...new Set(data.map(country => 
@@ -14,16 +20,21 @@ const Continents = ({data, handleClick}) => {
         //console.log(copy);
         copy.forEach(continent => {
             output.push(
-                <button key = {continent} onClick = {(event) => handleClick(event,continent)}>{continent}</button>
+                <button className='countryButt' key = {continent} onClick = {(event) => handleClick(event,continent)}>{continent}</button>
             )
         });
-        output.push(<button key = "all" onClick = {(event) => handleClick(event, 'all')}>View All</button>);
+        output.push(<button className='countryButt' key = "all" onClick = {(event) => handleClick(event, 'all')}>View All</button>);
     }
     
     return (
-        <div>
-            {output}
+        <div className='colapsable'>
+            <label className='colapseLable' htmlFor="colapse">Select continent</label>
+            <button name='colapse' className='colapsButt' onClick={toggleClass}>+</button>
+            <div className={`${isActive ? 'colapsed' : 'buttonContainer'}`}>
+                {output}
+            </div>
         </div>
+        
     )
 }
 export default Continents;
