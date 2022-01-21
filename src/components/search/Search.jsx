@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Search = ({countries, searchQuery, setSearchQuery, handleSearch }) => {
-    let tmp;
     return (
         <form
             action="/"
